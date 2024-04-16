@@ -1,4 +1,4 @@
-package main
+package binaryTree
 
 import "fmt"
 
@@ -16,7 +16,7 @@ func createTee(Val int) *TreeNode {
 	}
 }
 
-func initTree() *TreeNode {
+func InitTree() *TreeNode {
 	node1 := createTee(1)
 	node2 := createTee(2)
 	node3 := createTee(3)
@@ -33,22 +33,22 @@ func initTree() *TreeNode {
 	return node1
 }
 
-func dpsTree(t *TreeNode, nums *[]int) {
+func DpsTree(t *TreeNode, nums *[]int) {
 	if t == nil {
 		return
 	}
 
 	*nums = append(*nums, t.Val)
-	dpsTree(t.Left, nums)
-	dpsTree(t.Right, nums)
+	DpsTree(t.Left, nums)
+	DpsTree(t.Right, nums)
 
 }
 
-func main() {
+func init() {
 
-	tree := initTree()
+	tree := InitTree()
 	nums := make([]int, 0)
-	dpsTree(tree, &nums)
+	DpsTree(tree, &nums)
 	fmt.Println(nums)
 
 }
